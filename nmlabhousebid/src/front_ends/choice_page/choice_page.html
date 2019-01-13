@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" charset="UTF-8">
+  <link rel="stylesheet" href="css/choice_page.css" />
+  <title>Choice Page</title>
+</head>
+
+<body>
+  <header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <h2><a href="#">BlockChain Public Bidding</a></h2>
+    <script>
+      $.get("../../Log_In/Log_In.html", function(acnt,pswd){  
+        alert(acnt);  
+        alert(pswd);
+        }  
+      );
+      var paramindex = returnURL.indexOf('?');
+      document.write(paramindex);
+    </script>
+    <script type="text/javascript">
+      window.some_variable = '<?=$_POST['acnt']?>';
+      alert(window.some_variable);
+  </script>
+  </header>
+
+  <div class="container">
+   <button onclick="location.href='../tender_add_new_project/tender_add_new_project.html';">Tender</button>
+   <button onclick="location.href='../category/category.html';">Bid</button>
+   <button onclick="location.href='../view/view.html';">View</button> 
+  </div>
+
+  
+</body>
+</html>

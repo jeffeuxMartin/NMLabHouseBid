@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>NMLab_Blockchain_Public_Bidding_Log_In</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Log In</title>
+  <link rel="stylesheet" href="css/Log_In_style.css">
+  <script language="javascript" type="text/javascript"></script>
+  <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+  <script language="javascript" type="text/javascript" src="../../../abi/main_sol_ProjectFactory_abi.js"></script>
+</head>
+<body>
+  <script>
+    var nmlabHouseBid;
+
+    function startApp() {
+      var nmlabHouseBidAddress = "YOUR_CONTRACT_ADDRESS";
+      nmlabHouseBid = new web3js.eth.Contract(nmlabHouseBidABI, nmlabHouseBidAddress);
+    }
+    
+    window.addEventListener('load', function() {
+
+      // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+      if (typeof web3 !== 'undefined') {
+        // Use Mist/MetaMask's provider
+        web3js = new Web3(web3.currentProvider);
+      } else {
+        // Handle the case where the user doesn't have web3. Probably
+        // show them a message telling them to install Metamask in
+        // order to use our app.
+      }
+
+      // Now you can start your app & access web3js freely:
+      startApp()
+    })
+
+    function validate_and_send() {
+      var acnt = document.getElementById("acnt");
+      var pswd = document.getElementById("pswd");
+
+      if(acnt.value != "" && pswd.value != "") {
+          alert("Welcome, " + acnt.value + "!");
+
+          nmlabHouseBid.setUserName(acnt.value);
+          return true;
+      }
+      alert("Please input something.");
+      return false;
+    }
+  </script>
+
+  <header>
+    <h2><a href="#"></i> BlockChain Public Bidding</a></h2>
+  </header>
+  
+  <div class="container">
+    <form id="inputForm" onsubmit="return validate_and_send()" method="get" action="../choice_page/choice_page.html">
+      Account
+      <input type="text" class="Account" 
+        placeholder="please enter your account name" id="acnt" name="acnt"/>
+      Password
+      <input type="password" class="Password" 
+        placeholder="please enter your password" id="pswd" name="pswd"/>
+      <button id="login">Log In</button>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    </form>
+  </div>
+</body>
+</html>
